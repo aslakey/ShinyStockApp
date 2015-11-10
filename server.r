@@ -2,12 +2,20 @@ library(shiny)
 
 shinyServer(function(input, output) {
   datasetInput <- reactive({
+    #checking to see if this works to update code
     # Fetch the appropriate data object, depending on the value
     # of input$dataset.
     switch(input$stocks,
            "AAPL" = read.csv(url("http://real-chart.finance.yahoo.com/table.csv?s=AAPL&a=08&b=14&c=2014&d=08&e=15&f=2015&g=d&ignore=.csv"), header = TRUE, sep = ","),
            "TSLA" = read.csv(url("http://real-chart.finance.yahoo.com/table.csv?s=TSLA&a=08&b=15&c=2014&d=08&e=15&f=2015&g=d&ignore=.csv"), header = TRUE, sep = ","),
-           "YHOO" = read.csv(url("http://real-chart.finance.yahoo.com/table.csv?s=YHOO&a=08&b=15&c=2014&d=08&e=28&f=2015&g=d&ignore=.csv"), header = TRUE, sep = ",")
+           "YHOO" = read.csv(url("http://real-chart.finance.yahoo.com/table.csv?s=YHOO&a=08&b=15&c=2014&d=08&e=28&f=2015&g=d&ignore=.csv"), header = TRUE, sep = ","),
+           "IBM_tick" = read.csv(url("http://real-chart.finance.yahoo.com/table.csv?s=IBM&a=08&b=15&c=2014&d=08&e=15&f=2015&g=d&ignore=.csv"), header = TRUE, sep = ","),
+           "GOOG" = read.csv(url("http://real-chart.finance.yahoo.com/table.csv?s=GOOG&a=08&b=15&c=2014&d=08&e=15&f=2015&g=d&ignore=.csvv"), header = TRUE, sep = ","),
+           "FB" = read.csv(url("http://real-chart.finance.yahoo.com/table.csv?s=FB&a=08&b=15&c=2014&d=08&e=15&f=2015&g=d&ignore=.csv"), header = TRUE, sep = ","),
+           "LNKD" = read.csv(url("http://real-chart.finance.yahoo.com/table.csv?s=LNKD&a=08&b=15&c=2014&d=08&e=15&f=2015&g=d&ignore=.csv"), header = TRUE, sep = ","),
+           "MSFT" = read.csv(url("http://real-chart.finance.yahoo.com/table.csv?s=MSFT&a=08&b=15&c=2014&d=08&e=15&f=2015&g=d&ignore=.csv"), header = TRUE, sep = ","),
+           "CSCO" = read.csv(url("http://real-chart.finance.yahoo.com/table.csv?s=CSCO&a=08&b=15&c=2014&d=08&e=15&f=2015&g=d&ignore=.csv"), header = TRUE, sep = ","),
+           "MU" = read.csv(url("http://real-chart.finance.yahoo.com/table.csv?s=MU&a=08&b=15&c=2014&d=08&e=15&f=2015&g=d&ignore=.csv"), header = TRUE, sep = ",")
            )
   })
   
