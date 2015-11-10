@@ -69,7 +69,7 @@ for (i in 1:colu1){
 shinyServer(function(input, output) {
   datasetInput <- reactive({
     switch(input$stocks,
-           "APPL" = Apple,
+           "AAPL" = Apple,
            "TSLA" = Tesla,
            "YHOO" = Yahoo,
            "IBM" = IBM,
