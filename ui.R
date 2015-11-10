@@ -5,7 +5,7 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
       selectInput("stocks", "Choose a stock:", 
-                  choices = c("AAPL", "TSLA", "YHOO")),
+                  choices = c("AAPL", "TSLA", "YHOO","IBM","GOOG","FB","LNKD","MSFT","CSCO","MU")),
       radioButtons("filetype", "Download Stock file:",
                    choices = c("csv", "tsv")),
       downloadButton('downloadData', 'Download'),
