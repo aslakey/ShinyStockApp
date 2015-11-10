@@ -24,7 +24,8 @@ shinyServer(function(input, output) {
     colu1 <- length(ST$Close)
     
     x    <- ST$Close# Old Faithful Geyser data
-    bins <- seq(1, 253, length.out = input$bins )
+    #bins <- seq(1, 253, length.out = input$bins )
+    bins <- input$bins
     
     stock <-c()
     
@@ -34,7 +35,7 @@ shinyServer(function(input, output) {
       stock<- c(value1,stock)}
       #hist (stock, breaks = bins)
     
-      hist (stock, breaks = 20)
+      hist (stock, breaks = bins)
   })
 
 
