@@ -1,3 +1,5 @@
+# The shiny UI file
+
 library(shiny)
 
 shinyUI(fluidPage(
@@ -14,13 +16,29 @@ shinyUI(fluidPage(
                   "Number of bins:",
                   min = 1,
                   max = 100,
-                  value = 30)
+                  value = 30),
+      
+      sliderInput("clevel",
+                  "Confidence Level(in %):",
+                  min = 1,
+                  max = 100,
+                  value = 95),
+      selectInput("compstock", "Choose a comparison:", 
+                  choices = c("AAPL", "TSLA", "YHOO","IBM","GOOG","FB","LNKD","MSFT","CSCO","MU"))
     ),
     
     
     mainPanel(
+      plotOutput('TrendPlot'),
       plotOutput('hist'),
-      plotOutput('NormalProbPlot')
+      verbatimTextOutput('ConfidenceInterval'),
+      plotOutput('NormalProbPlot'),
+      plotOutput("timeScatter"),
+      tableOutput("timeStats"),
+      tableOutput("timeResults"),
+      plotOutput("compScatter"),
+      tableOutput("compStats"),
+      tableOutput("compResults")
     )
   )
 ))
